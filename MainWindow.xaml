@@ -1,0 +1,1993 @@
+﻿<Window x:Class="BlackOutIO.MainWindow"
+
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        AllowsTransparency="True"
+        MouseDown="MouseDownMove"
+        
+        mc:Ignorable="d"
+        Title="BlackOut IO" Height="725" Width="1168" WindowStyle="None" ResizeMode="NoResize">
+    <Grid>
+        <Grid Name="mainBg" HorizontalAlignment="Left" Height="737" Margin="-1.6,0,0,0" VerticalAlignment="Top" Width="966.4" Background="#FF202428">
+            <Grid Name="centerBarTop" HorizontalAlignment="Left" Height="78.9" Margin="0,31.2,0,0" VerticalAlignment="Top" Width="913.6">
+                <Button Click="profileshow" Cursor="Hand" Content="Profiles" HorizontalAlignment="Left" Height="53.4" Margin="121.667,10,0,0" VerticalAlignment="Top" Width="102.133" Background="{x:Null}" Foreground="#FFDDDDDD" BorderBrush="{x:Null}" FontSize="14">
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type ButtonBase}">
+                            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Button.IsDefaulted" Value="True">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                </Trigger>
+                                <Trigger Property="ToggleButton.IsChecked" Value="True">
+                                    <Setter Property="Background" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="Foreground" Value="#FF838383"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Cursor="Hand" Click="editTask" Content="Tasks" HorizontalAlignment="Left" Height="53.4" Margin="256.9,10,0,0" VerticalAlignment="Top" Width="102.133" Background="{x:Null}" Foreground="#FFDDDDDD" BorderBrush="{x:Null}" FontSize="14" >
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type ButtonBase}">
+                            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Button.IsDefaulted" Value="True">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                </Trigger>
+                                <Trigger Property="ToggleButton.IsChecked" Value="True">
+                                    <Setter Property="Background" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="Foreground" Value="#FF838383"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Cursor="Hand" Click="showSettings" Content="Settings" HorizontalAlignment="Left" Height="53.4" Margin="395.334,10,0,0" VerticalAlignment="Top" Width="102.133" Background="{x:Null}" Foreground="#FFDDDDDD" BorderBrush="{x:Null}" FontSize="14" >
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type ButtonBase}">
+                            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Button.IsDefaulted" Value="True">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                </Trigger>
+                                <Trigger Property="ToggleButton.IsChecked" Value="True">
+                                    <Setter Property="Background" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="Foreground" Value="#FF838383"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Click="showAccPanel" Cursor="Hand" Content="Accounts" HorizontalAlignment="Left" Height="53.4" Margin="531.467,10,0,0" VerticalAlignment="Top" Width="102.133" Background="{x:Null}" Foreground="#FFDDDDDD" BorderBrush="{x:Null}" FontSize="14" >
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type ButtonBase}">
+                            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Button.IsDefaulted" Value="True">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                </Trigger>
+                                <Trigger Property="ToggleButton.IsChecked" Value="True">
+                                    <Setter Property="Background" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="Foreground" Value="#FF838383"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Click="showProxyPanel" Cursor="Hand" Content="Proxies" HorizontalAlignment="Left" Height="53.4" Margin="667.867,10,0,0" VerticalAlignment="Top" Width="98.133" Background="{x:Null}" Foreground="#FFDDDDDD" BorderBrush="{x:Null}" FontSize="14" >
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type ButtonBase}">
+                            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Button.IsDefaulted" Value="True">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                </Trigger>
+                                <Trigger Property="ToggleButton.IsChecked" Value="True">
+                                    <Setter Property="Background" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="Foreground" Value="#FF838383"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button HorizontalAlignment="Left" Height="42.2" Margin="26.4,10,0,0" VerticalAlignment="Top" Width="51.6" Background="{x:Null}" BorderBrush="#FF560099" Click="showHome">
+                    <materialDesign:PackIcon Height="26.8" Width="17.2" Kind="House"/>
+                </Button>
+                <Button Visibility="Hidden" Click="showCookies" Cursor="Hand" Content="
+                        " HorizontalAlignment="Left" Height="53.4" Margin="795.867,10,0,0" VerticalAlignment="Top" Width="98.133" Background="{x:Null}" Foreground="#FFDDDDDD" BorderBrush="{x:Null}" FontSize="14" >
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type ButtonBase}">
+                            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="Button.IsDefaulted" Value="True">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                </Trigger>
+                                <Trigger Property="ToggleButton.IsChecked" Value="True">
+                                    <Setter Property="Background" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{x:Null}"/>
+                                    <Setter Property="Foreground" Value="#FF838383"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+            <Rectangle Fill="#FF560099" HorizontalAlignment="Left" Height="1.6" Margin="123.266,83.9,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="98.134"/>
+            <Rectangle Fill="#FF560099" HorizontalAlignment="Left" Height="1.6" Margin="259.966,83.9,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="98.134"/>
+            <Rectangle Fill="#FF560099" HorizontalAlignment="Left" Height="1.6" Margin="397.399,83.9,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="98.134"/>
+            <Rectangle Fill="#FF560099" HorizontalAlignment="Left" Height="1.6" Margin="534.732,83.9,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="98.134"/>
+            <Rectangle Fill="#FF560099" HorizontalAlignment="Left" Height="1.6" Margin="668.8,83.9,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="98.134"/>
+            <Grid HorizontalAlignment="Left" Height="31.2" Margin="0,0,-213.6,0" VerticalAlignment="Top" Width="1180" Background="#FF232323">
+                <TextBlock HorizontalAlignment="Left" Height="19.6" Margin="12.8,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192.867" Foreground="White"><Run Text="BlackOut 2.0."/><Run Text="2"/><Run Text=" - "/><Run Text="F&amp;F Build"/></TextBlock>
+                <Button
+  Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+  ToolTip="Close" Margin="1133.6,0,16.8,4.6" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Background="{x:Null}" Click="closeApp">
+                    <materialDesign:PackIcon
+    Kind="Close"
+    Height="16.2"
+    Width="19.6" Foreground="#DDFFFFFF" />
+                </Button>
+                <Button
+                    Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                    ToolTip="Minímize Window" Margin="1106.6,0,43.8,4.6" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Background="{x:Null}" Click="min">
+                    <materialDesign:PackIcon
+                        Kind="WindowMinimize"
+                        Height="16.2"
+                        Width="19.6" Foreground="#DDFFFFFF" />
+                </Button>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="601.4" Margin="10,125.6,0,0" VerticalAlignment="Top" Width="903.6" Name="ProfileManager">
+                <Rectangle Fill="#FF272B2F" HorizontalAlignment="Left" Height="581.4" Margin="38.8,10,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="854.8" StrokeThickness="2"/>
+                <Rectangle Fill="#FF323232" HorizontalAlignment="Left" Height="557.4" Margin="501.6,21.9,0,0" RadiusY="15" RadiusX="15" StrokeThickness="2" VerticalAlignment="Top" Width="384.8"/>
+                <Rectangle HorizontalAlignment="Left" Height="204.8" Margin="513.6,28.2,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="362.4">
+
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black" Offset="1"/>
+                            <GradientStop Color="#FF282727"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle HorizontalAlignment="Left" Height="25.6" Margin="799.4,40.8,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="28" Fill="Red"/>
+                <Rectangle HorizontalAlignment="Left" Height="25.6" Margin="814.467,40.8,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="28" Fill="#FF560198"/>
+                <TextBlock HorizontalAlignment="Left" Height="24" Margin="533.333,203.972,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237.067" Foreground="#FF999999" FontFamily="Copperplate Gothic Light" Text="BlackOutLabs bank"/>
+                <TextBox Name="CCNum" materialDesign:HintAssist.Hint="CREDIT CARD NUMBER" HorizontalAlignment="Left" Height="32" Margin="532.4,108.933,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" FontFamily="Global Monospace" FontSize="14" Foreground="White"/>
+                <TextBox Name="CCMonth" materialDesign:HintAssist.Hint="MM" HorizontalAlignment="Left" Height="32" Margin="533.333,153.466,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="23.267" FontFamily="Global Monospace" FontSize="14" Foreground="White"/>
+                <TextBox Name="CCYear" materialDesign:HintAssist.Hint="YYYY" HorizontalAlignment="Left" Height="32" Margin="577.067,153.359,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45.667" FontFamily="Global Monospace" FontSize="14" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Height="32" Margin="561.6,153.466,0,0" TextWrapping="Wrap" Text="/" VerticalAlignment="Top" Width="10.467" Foreground="White" FontSize="16"/>
+                <ComboBox Name="CardType" materialDesign:HintAssist.Hint="Card Type" HorizontalAlignment="Left" Height="31.466" Margin="533.333,301.916,0,0" VerticalAlignment="Top" Width="285.934" Foreground="White" FontSize="14" BorderBrush="#89FFFFFF">
+
+                    <ComboBoxItem Content="Mastercard" IsSelected="False"/>
+                    <ComboBoxItem Content="Visa" IsSelected="False"/>
+                    <ComboBoxItem Content="Revolut" IsSelected="False"/>
+                    <ComboBoxItem Content="Amex" IsSelected="False"/>
+                </ComboBox>
+                <TextBox Name="firstNamee" HorizontalAlignment="Left" Height="34.4" Margin="66,91.133,0,0" TextWrapping="Wrap" Text="" materialDesign:HintAssist.Hint="First Name" VerticalAlignment="Top" Width="171.6" Foreground="White" FontSize="14" SelectionBrush="#FF560198" CaretBrush="#FF560198" BorderBrush="#89919191"/>
+                <TextBox Name="LastName" HorizontalAlignment="Left" Height="34.4" Margin="66,150.959,0,0" TextWrapping="Wrap" Text="" materialDesign:HintAssist.Hint="Last Name" VerticalAlignment="Top" Width="171.6" Foreground="White" FontSize="14" SelectionBrush="#FF560198" CaretBrush="#FF560198" BorderBrush="#89919191"/>
+                <TextBox Name="emailAddress" HorizontalAlignment="Left" Height="34.4" Margin="66,214.559,0,0" TextWrapping="Wrap" Text="" materialDesign:HintAssist.Hint="Email Address" VerticalAlignment="Top" Width="171.6" Foreground="White" FontSize="14" SelectionBrush="#FF560198" CaretBrush="#FF560198" BorderBrush="#89919191"/>
+                <TextBox Name="phoneNumber" HorizontalAlignment="Left" Height="34.4" Margin="66,281.759,0,0" TextWrapping="Wrap" Text="" materialDesign:HintAssist.Hint="Phone Number" VerticalAlignment="Top" Width="171.6" Foreground="White" FontSize="14" SelectionBrush="#FF560198" CaretBrush="#FF560198" BorderBrush="#89919191"/>
+                <TextBox Name="street" HorizontalAlignment="Left" Height="34.4" Margin="66,350.159,0,0" TextWrapping="Wrap" Text="" materialDesign:HintAssist.Hint="Street " VerticalAlignment="Top" Width="171.6" Foreground="White" FontSize="14" SelectionBrush="#FF560198" CaretBrush="#FF560198" BorderBrush="#89919191"/>
+                <TextBox Name="HouseNumber" HorizontalAlignment="Left" Height="34.4" Margin="299.6,28.2,0,0" TextWrapping="Wrap" Text="" materialDesign:HintAssist.Hint="House Number" VerticalAlignment="Top" Width="171.6" Foreground="White" FontSize="14" SelectionBrush="#FF560198" CaretBrush="#FF560198" BorderBrush="#89919191"/>
+                <TextBox Name="Address2" HorizontalAlignment="Left" Height="34.4" Margin="299.6,91.133,0,0" TextWrapping="Wrap" Text="" materialDesign:HintAssist.Hint="Address 2" VerticalAlignment="Top" Width="171.6" Foreground="White" FontSize="14" SelectionBrush="#FF560198" CaretBrush="#FF560198" BorderBrush="#89919191"/>
+                <TextBox Name="postcode" HorizontalAlignment="Left" Height="34.4" Margin="299.6,150.959,0,0" TextWrapping="Wrap" Text="" materialDesign:HintAssist.Hint="Postal Code" VerticalAlignment="Top" Width="181.2" Foreground="White" FontSize="14" SelectionBrush="#FF560198" CaretBrush="#FF560198" BorderBrush="#89919191"/>
+                <TextBox Name="city" HorizontalAlignment="Left" Height="34.4" Margin="299.6,214.559,0,0" TextWrapping="Wrap" Text="" materialDesign:HintAssist.Hint="City" VerticalAlignment="Top" Width="181.2" Foreground="White" FontSize="14" SelectionBrush="#FF560198" CaretBrush="#FF560198" BorderBrush="#89919191"/>
+                <TextBox Name="province" HorizontalAlignment="Left" Height="34.4" Margin="299.6,281.759,0,0" TextWrapping="Wrap" Text="" materialDesign:HintAssist.Hint="Province / State / County" VerticalAlignment="Top" Width="181.2" Foreground="White" FontSize="14" SelectionBrush="#FF560198" CaretBrush="#FF560198" BorderBrush="#89919191"/>
+                <ComboBox Name="country" HorizontalAlignment="Left" Height="32.333" Margin="299.6,352.226,0,0" VerticalAlignment="Top" Width="181.2" Foreground="#FF949494" FontSize="14" BorderBrush="#89919191">
+                    <ComboBoxItem Content="Select Country" IsSelected="True" FontSize="14"/>
+                    <ComboBoxItem Content="Andorra" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Austria" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Belgium" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="China" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Croatia" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Czech Republic" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Denmark" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Finland" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="France" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Germany" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Hong Kong" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Hungary" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Italy" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Lichtenstein" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Luxembourg" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Netherlands" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Norway" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Poland" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Portugal" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Romania" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Russia" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Singapore" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Slovakia" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Slovenia" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Spain" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Sweden" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="Switzerland" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="UK" IsSelected="False" FontSize="14"/>
+                    <ComboBoxItem Content="United States" IsSelected="False" FontSize="14"/>
+
+                </ComboBox>
+                <CheckBox Name="testingProfile" Content="Testing Profile" HorizontalAlignment="Left" Height="26.958" Margin="66,413.666,0,0" VerticalAlignment="Top" Width="181.7" FontSize="14" Background="Red" Foreground="Red"/>
+                <CheckBox x:Name="PPCheckout" Content="PayPal Checkout" HorizontalAlignment="Left" Height="26.958" Margin="523.133,238,0,0" VerticalAlignment="Top" Width="304.267" Background="Red" FontSize="14" Foreground="White" RenderTransformOrigin="0.5,2.827"/>
+                <ComboBox Name="profileName" HorizontalAlignment="Left" Height="32.333" Margin="66,30.267,0,0" IsEditable="True" VerticalAlignment="Top" Width="181.2" Foreground="#FF949494" FontSize="14" BorderBrush="#89919191">
+                    <ComboBoxItem Content="New Profile" IsSelected="True" FontSize="14"/>
+
+                </ComboBox>
+                <Button Click="saveProfile" materialDesign:ShadowAssist.ShadowDepth="Depth5"  HorizontalAlignment="Left" Height="43.467" Margin="80.1,498.3,0,0" VerticalAlignment="Top" Width="52.933" Background="#FF06FF00" BorderBrush="{x:Null}" Opacity="0.8">
+                    <materialDesign:PackIcon Kind="ContentSave"/>
+                </Button>
+                <Button Click="editProfile" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="43.467" Margin="143.434,498.3,0,0" VerticalAlignment="Top" Width="54.533" Background="#FFFDFF00" BorderBrush="{x:Null}" Opacity="0.8">
+                    <materialDesign:PackIcon Kind="Edit"/>
+                </Button>
+                <Button Click="delProfile" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="43.467" Margin="208.366,498.3,0,0" VerticalAlignment="Top" Width="53.467" Background="Red" BorderBrush="{x:Null}" Opacity="0.8">
+                    <materialDesign:PackIcon Kind="Delete"/>
+                </Button>
+                <Button materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="43.467" Margin="272,498.3,0,0" VerticalAlignment="Top" Width="50.7" Background="#FF560198" BorderBrush="{x:Null}" Opacity="0.8">
+                    <materialDesign:PackIcon Kind="Import"/>
+                </Button>
+                <Button materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="43.467" Margin="333.801,498.3,0,0" VerticalAlignment="Top" Width="50.066" Background="#FF560198" BorderBrush="{x:Null}" Opacity="0.8">
+                    <materialDesign:PackIcon Kind="Export"/>
+                </Button>
+                <Rectangle HorizontalAlignment="Left" Height="204.8" Margin="513.6,350.159,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="362.4">
+
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black" Offset="1"/>
+                            <GradientStop Color="#FF282727"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBox x:Name="CCCVV" materialDesign:HintAssist.Hint="CVV / CVC" HorizontalAlignment="Left" Height="36.266" Margin="660.4,436.72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontFamily="Global Monospace" FontSize="14" Foreground="White"/>
+                <Rectangle HorizontalAlignment="Left" Height="36.266" Margin="513.6,436.72,0,0" StrokeThickness="2" VerticalAlignment="Top" Width="141.8" Fill="#FF919191"/>
+                <TextBlock HorizontalAlignment="Left" Height="10.12" Margin="516.533,424.2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138.867" Foreground="White" FontFamily="Yu Gothic UI Light" FontSize="8"><Run Text="Cardholder's Sign"/><Run Text="a"/><Run Text="ture"/></TextBlock>
+                <Rectangle Fill="Black" HorizontalAlignment="Left" Height="28.575" Margin="513.6,375.492,0,0" StrokeThickness="2" VerticalAlignment="Top" Width="362.4"/>
+                <Rectangle HorizontalAlignment="Left" Height="43.8" Margin="533.333,50.4,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="63.067" Fill="#FFFFD260"/>
+                <TextBlock HorizontalAlignment="Left" Height="16.8" Margin="523.133,531.9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237.067" Foreground="#FF999999" FontFamily="Copperplate Gothic Light"><Run Text="Issued By the BlackOut Ban"/><Run Text="k"/></TextBlock>
+                <TextBlock HorizontalAlignment="Left" Height="14.933" Margin="523.133,355.559,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237.067" Foreground="#FF999999" FontFamily="Copperplate Gothic Light" FontSize="10" Text="If Found Or Stolen Return To Pat"/>
+            </Grid>
+            <Grid x:Name="proxyPanel" HorizontalAlignment="Left" Height="572.8" Margin="34.933,145.667,0,0" VerticalAlignment="Top" Width="865.6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="197*"/>
+                    <ColumnDefinition Width="689*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle Fill="#FF272B2F" HorizontalAlignment="Left" Height="552.8" Margin="10,10,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="855.6" Grid.ColumnSpan="2"/>
+                <Button Click="saveProxies"  HorizontalAlignment="Left" Height="45.6" Margin="37.733,84.8,0,0" VerticalAlignment="Top" Width="57.6" Background="{x:Null}" BorderBrush="#FF00FF15">
+                    <materialDesign:PackIcon Kind="ContentSave"/>
+                </Button>
+                <TextBox x:Name="proxylistField"
+                    Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                    Margin="32.8,150,45.533,0"
+                    VerticalAlignment="Top"
+                    Height="400"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="Enter Proxies (ip:port, user:pass@ip:port, ip:port:user:pass)"
+                    IsEnabled="{Binding IsChecked, ElementName=MaterialDesignOutlinedTextFieldTextBoxEnabledComboBox}" Background="#FF232323" BorderBrush="{x:Null}" Foreground="White" Grid.ColumnSpan="2" />
+                <Button  Click="loadList" HorizontalAlignment="Left" Height="45.6" Margin="115.333,84.8,0,0" VerticalAlignment="Top" Width="57.6" Background="{x:Null}" BorderBrush="#FFEBFF00">
+                    <materialDesign:PackIcon Kind="Edit"/>
+                </Button>
+                <Button  Click="delProxylist" HorizontalAlignment="Left" Height="45.6" Margin="192.933,84.8,0,0" VerticalAlignment="Top" Width="57.6" BorderBrush="#FFFF1200" Background="{x:Null}" Grid.ColumnSpan="2">
+                    <materialDesign:PackIcon Kind="Delete"/>
+                </Button>
+                <ComboBox Name="proxylistN" HorizontalAlignment="Left" Height="34.4" Margin="28.833,25.6,0,0" VerticalAlignment="Top" IsEditable="True" Width="221.7" BorderBrush="White" Foreground="White" FontSize="14" Background="#FF272B2F" Grid.ColumnSpan="2">
+                    <ComboBoxItem Content="New Proxylist" IsSelected="True"/>
+                </ComboBox>
+            </Grid>
+            <Grid x:Name="TaskPanel" HorizontalAlignment="Left" Height="623.7" Margin="34.933,103.3,0,0" VerticalAlignment="Top" Width="865.6">
+
+                <Rectangle Fill="#FF292D31" HorizontalAlignment="Left" Height="580.8" Margin="10,32.9,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="845.6"/>
+                <Rectangle Fill="#FF232323" HorizontalAlignment="Left" Height="43.2" Margin="23.2,43.433,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="818"/>
+                <Rectangle Fill="#FF232323" HorizontalAlignment="Left" Height="43.2" Margin="23.2,109.167,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="818"/>
+                <Rectangle Fill="#FF232323" HorizontalAlignment="Left" Height="43.2" Margin="23.2,174.9,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="818"/>
+                <Rectangle Fill="#FF232323" HorizontalAlignment="Left" Height="43.2" Margin="23.2,242.1,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="818"/>
+                <Rectangle Fill="#FF232323" HorizontalAlignment="Left" Height="43.2" Margin="23.2,308.9,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="818"/>
+                <Rectangle Fill="#FF232323" HorizontalAlignment="Left" Height="43.2" Margin="23.2,377.7,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="818"/>
+                <Rectangle Fill="#FF232323" HorizontalAlignment="Left" Height="43.2" Margin="23.2,445.033,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="818"/>
+                <TextBlock HorizontalAlignment="Left" Height="22.533" Margin="47.733,51.893,0,0" TextWrapping="Wrap" Text="BSTN" VerticalAlignment="Top" Width="100" Foreground="White" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Height="22.533" Margin="47.733,119.567,0,0" TextWrapping="Wrap" Text="43einhalb" VerticalAlignment="Top" Width="100" Foreground="White" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Height="22.533" Margin="47.733,183.433,0,0" TextWrapping="Wrap" Text="24segons" VerticalAlignment="Top" Width="100" Foreground="White" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Height="22.533" Margin="47.733,250.766,0,0" TextWrapping="Wrap" Text="Basket4Ballers" VerticalAlignment="Top" Width="100" Foreground="White" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Height="22.533" Margin="47.733,318.766,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Foreground="White" FontSize="14"><Run Text="18montrose"/></TextBlock>
+                <TextBlock HorizontalAlignment="Left" Height="22.533" Margin="47.733,387.833,0,0" TextWrapping="Wrap" Text="SivasDesCalzo" VerticalAlignment="Top" Width="100" Foreground="White" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Height="22.533" Margin="47.733,453.966,0,0" TextWrapping="Wrap" Text="Aw-Lab" VerticalAlignment="Top" Width="100" Foreground="White" FontSize="14"/>
+                <ComboBox x:Name="bstnCombo" HorizontalAlignment="Left" Height="33.066" Margin="198.4,41.36,0,0" VerticalAlignment="Top" Width="250.4" Foreground="White" FontSize="14"/>
+                <ComboBox x:Name="einhCombo" HorizontalAlignment="Left" Height="32.933" Margin="198.4,109.167,0,0" VerticalAlignment="Top" Width="250.4" Foreground="White" FontSize="14"/>
+                <ComboBox x:Name="segonsCombo" HorizontalAlignment="Left" Height="32.933" Margin="198.4,174.9,0,0" VerticalAlignment="Top" Width="250.4" Foreground="White" FontSize="14"/>
+                <ComboBox x:Name="b4bCombo" HorizontalAlignment="Left" Height="32.933" Margin="198.4,242.1,0,0" VerticalAlignment="Top" Width="250.4" Foreground="White" FontSize="14"/>
+                <ComboBox x:Name="montroseCombo" HorizontalAlignment="Left" Height="32.933" Margin="198.4,308.9,0,0" VerticalAlignment="Top" Width="250.4" Foreground="White" FontSize="14"/>
+                <ComboBox x:Name="svdCombo" HorizontalAlignment="Left" Height="32.933" Margin="198.4,377.433,0,0" VerticalAlignment="Top" Width="250.4" Foreground="White" FontSize="14"/>
+                <ComboBox x:Name="awCombo" HorizontalAlignment="Left" Height="32.933" Margin="198.4,445.033,0,0" VerticalAlignment="Top" Width="250.4" Foreground="White" FontSize="14"/>
+                <TextBox  x:Name="minsBstn"  materialDesign:HintAssist.Hint="Schedule in " materialDesign:TextFieldAssist.SuffixText="[mins]" HorizontalAlignment="Left" Height="26.566" Margin="492.367,47.86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99.6" Foreground="White"/>
+                <TextBox x:Name="minsEinh" materialDesign:HintAssist.Hint="Schedule in " materialDesign:TextFieldAssist.SuffixText="[mins]" HorizontalAlignment="Left" Height="26.566" Margin="492.367,115.534,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99.6" Foreground="White"/>
+                <TextBox x:Name="mins24segons" materialDesign:HintAssist.Hint="Schedule in " materialDesign:TextFieldAssist.SuffixText="[mins]" HorizontalAlignment="Left" Height="26.566" Margin="492.367,181.267,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99.6" Foreground="White"/>
+                <TextBox x:Name="minsB4b" materialDesign:HintAssist.Hint="Schedule in " materialDesign:TextFieldAssist.SuffixText="[mins]" HorizontalAlignment="Left" Height="26.566" Margin="492.367,248.467,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99.6" Foreground="White"/>
+                <TextBox x:Name="minsmontrose" materialDesign:HintAssist.Hint="Schedule in " materialDesign:TextFieldAssist.SuffixText="[mins]" HorizontalAlignment="Left" Height="26.566" Margin="492.367,314.733,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99.6" Foreground="White"/>
+                <TextBox x:Name="minsSvd" materialDesign:HintAssist.Hint="Schedule in " materialDesign:TextFieldAssist.SuffixText="[mins]" HorizontalAlignment="Left" Height="26.566" Margin="492.367,383.8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99.6" Foreground="White"/>
+                <TextBox x:Name="minsAw" materialDesign:HintAssist.Hint="Schedule in " materialDesign:TextFieldAssist.SuffixText="[mins]" HorizontalAlignment="Left" Height="26.566" Margin="492.367,449.933,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99.6" Foreground="White"/>
+                <ToggleButton
+  Style="{StaticResource MaterialDesignActionToggleButton}"
+  ToolTip="Schedule Task" Margin="630.8,48.859,202.8,542.841" x:Name="bstnSchedule" Background="#FF560099">
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+      Kind="AlarmOn" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+      Kind="AlarmOff" />
+                </ToggleButton>
+                <ToggleButton x:Name="einhSchedule"
+                    Style="{StaticResource MaterialDesignActionToggleButton}"
+                    ToolTip="Schedule Task" Margin="630.8,115.533,202.8,476.166" Background="#FF560099">
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+                            Kind="AlarmOn" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="AlarmOff" />
+                </ToggleButton>
+                <ToggleButton x:Name="segonsSchedule"
+                    Style="{StaticResource MaterialDesignActionToggleButton}"
+                    ToolTip="Schedule Task" Margin="630.8,181.267,202.8,410.433" Background="#FF560099">
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+                            Kind="AlarmOn" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="AlarmOff" />
+                </ToggleButton>
+                <ToggleButton x:Name="b4bSchedule"
+                    Style="{StaticResource MaterialDesignActionToggleButton}"
+                    ToolTip="Schedule Task" Margin="630.8,248.467,202.8,343.233" Background="#FF560099">
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+                            Kind="AlarmOn" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="AlarmOff" />
+                </ToggleButton>
+                <ToggleButton 
+                    Style="{StaticResource MaterialDesignActionToggleButton}"
+                    ToolTip="Schedule Task" Name="scheduleMontrose" Margin="630.8,314.733,202.8,276.967" Background="#FF560099">
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+                            Kind="AlarmOn" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="AlarmOff" />
+                </ToggleButton>
+                <ToggleButton x:Name="svdSchedule"
+                    Style="{StaticResource MaterialDesignActionToggleButton}"
+                    ToolTip="Schedule Task" Margin="630.8,383.8,202.8,207.899" Background="#FF560099">
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+                            Kind="AlarmOn" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="AlarmOff" />
+                </ToggleButton>
+                <ToggleButton x:Name="awlabSchedule"
+                    Style="{StaticResource MaterialDesignActionToggleButton}"
+                    ToolTip="Schedule Task" Margin="630.8,449.933,202.8,141.766" Background="#FF560099">
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+                            Kind="AlarmOn" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="AlarmOff" />
+                </ToggleButton>
+                <Button Click="startBstn"
+  Style="{StaticResource MaterialDesignFloatingActionButton}"
+  materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+  materialDesign:ButtonProgressAssist.Value="-1"
+  materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+  Content="{materialDesign:PackIcon Kind=Play}" Margin="686.333,48.859,149.667,542.841" Height="Auto" Width="Auto" Background="#FF560099" BorderBrush="{x:Null}" />
+                <Button Click="startEinh"
+                    Style="{StaticResource MaterialDesignFloatingActionButton}"
+                    materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                    materialDesign:ButtonProgressAssist.Value="-1"
+                    materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                    Content="{materialDesign:PackIcon Play}" Margin="686.333,115.534,149.667,476.166" Height="Auto" Width="Auto" Background="#FF560099" BorderBrush="{x:Null}" />
+                <Button Click="segonsStart"
+                    IsEnabled="True"
+                        Style="{StaticResource MaterialDesignFloatingActionButton}"
+                    materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                    materialDesign:ButtonProgressAssist.Value="-1"
+                    materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                    Content="{materialDesign:PackIcon Play}" Margin="686.333,181.267,149.667,410.433" Height="Auto" Width="Auto" Background="#FF560099" BorderBrush="{x:Null}" />
+                <Button Click="startB4B"
+                    Style="{StaticResource MaterialDesignFloatingActionButton}"
+                    materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                    materialDesign:ButtonProgressAssist.Value="-1"
+                    materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                    Content="{materialDesign:PackIcon Play}" Margin="686.333,248.467,149.667,343.233" Height="Auto" Width="Auto" Background="#FF560099" BorderBrush="{x:Null}" />
+                <Button Click="startMontrose"
+                    IsEnabled="True"
+                        Style="{StaticResource MaterialDesignFloatingActionButton}"
+                    materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                    materialDesign:ButtonProgressAssist.Value="-1"
+                    materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                    Content="{materialDesign:PackIcon Play}" Margin="686.333,314.733,149.667,276.967" Height="Auto" Width="Auto" Background="#FF560099" BorderBrush="{x:Null}" />
+                <Button Click="svdStart"
+                    Style="{StaticResource MaterialDesignFloatingActionButton}"
+                    materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                    materialDesign:ButtonProgressAssist.Value="-1"
+                    materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                    Content="{materialDesign:PackIcon Play}" Margin="686.333,383.8,149.667,207.9" Height="Auto" Width="Auto" Background="#FF560099" BorderBrush="{x:Null}" />
+                <Button Click="startAwl"
+                    Style="{StaticResource MaterialDesignFloatingActionButton}"
+                    materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                    materialDesign:ButtonProgressAssist.Value="-1"
+                    materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                    Content="{materialDesign:PackIcon Play}" Margin="686.333,449.933,149.667,141.767" Height="Auto" Width="Auto" Background="#FF560099" BorderBrush="{x:Null}" />
+                <Button Click="bstnEditandLoad"
+  Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+  ToolTip="Edit" Margin="737.733,48.859,93.733,542.841" Height="Auto" Width="Auto" Background="#FFDAB425" Foreground="#DDFFFFFF" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon
+    Kind="Edit"
+    Height="24"
+    Width="24" />
+                </Button>
+                <Button Click="bstnStop"
+                    Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                    ToolTip="Stop" Margin="788.4,48.859,43.066,542.841" Height="Auto" Width="Auto" Background="Red" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon
+                        Kind="stop"
+                        Height="24"
+                        Width="24" />
+                </Button>
+                <Button Click="trigger43einSel"
+                    Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                    ToolTip="Edit" Margin="737.733,115.534,93.733,476.166" Height="Auto" Width="Auto" Background="#FFDAB425" BorderBrush="{x:Null}" Foreground="#DDFFFFFF">
+                    <materialDesign:PackIcon
+                        Kind="Edit"
+                        Height="24"
+                        Width="24" />
+                </Button>
+                <Button Click="einhStop"
+                    Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                    ToolTip="Stop" Margin="788.4,115.534,43.066,476.166" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Background="Red">
+                    <materialDesign:PackIcon
+                        Kind="Stop"
+                        Height="24"
+                        Width="24" />
+                </Button>
+                <Button Click="segonsStop"
+                    Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                    ToolTip="Stop" Margin="788.4,181.267,43.066,410.433" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Background="Red">
+                    <materialDesign:PackIcon
+                        Kind="Stop"
+                        Height="24"
+                        Width="24" />
+                </Button>
+                <Button Click="editLoadSegons"
+                    Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                    ToolTip="Edit" Margin="737.733,181.267,93.733,410.433" Height="Auto" Width="Auto" Foreground="#DDFFFFFF" BorderBrush="{x:Null}" Background="#FFDAB425">
+                    <materialDesign:PackIcon
+                        Kind="Edit"
+                        Height="24"
+                        Width="24" />
+                </Button>
+                <Button Click="loadEditB4b"
+                    Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                    ToolTip="Edit" Margin="737.733,248.467,93.733,343.233" Height="Auto" Width="Auto" Background="#FFDAB425" BorderBrush="{x:Null}" Foreground="#DDFFFFFF">
+                    <materialDesign:PackIcon
+                        Kind="Edit"
+                        Height="24"
+                        Width="24" />
+                </Button>
+                <Button Click="b4bStop"
+                    Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                    ToolTip="Stop" Margin="788.4,248.467,43.066,343.233" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Background="Red">
+                    <materialDesign:PackIcon
+                        Kind="Stop"
+                        Height="24"
+                        Width="24" />
+                </Button>
+                <Button Click="montroseStop"
+                    Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                    ToolTip="Stop" Margin="788.4,314.733,43.066,276.967" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Background="Red">
+                    <materialDesign:PackIcon
+                        Kind="Stop"
+                        Height="24"
+                        Width="24" />
+                </Button>
+                <Button Click="loadEditMontrose"
+                    Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                    ToolTip="Edit" Margin="737.733,314.733,93.733,276.967" Height="Auto" Width="Auto" Foreground="#DDFFFFFF" BorderBrush="{x:Null}" Background="#FFDAB425">
+                    <materialDesign:PackIcon
+                        Kind="Edit"
+                        Height="24"
+                        Width="24" />
+                </Button>
+                <Button Click="svdLoadEdit"
+                    Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                    ToolTip="Edit" Margin="737.733,383.8,93.733,207.9" Height="Auto" Width="Auto" Background="#FFDAB425" BorderBrush="{x:Null}" Foreground="#DDFFFFFF">
+                    <materialDesign:PackIcon
+                        Kind="Edit"
+                        Height="24"
+                        Width="24" />
+                </Button>
+                <Button Click="svdStop"
+                    Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                    ToolTip="Stop" Margin="788.4,383.8,43.066,207.9" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Background="Red">
+                    <materialDesign:PackIcon
+                        Kind="Stop"
+                        Height="24"
+                        Width="24" />
+                </Button>
+                <Button Click="awlStop"
+                    Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                    ToolTip="Stop" Margin="788.4,449.933,43.066,141.767" Height="Auto" Width="Auto" BorderBrush="{x:Null}" Background="Red">
+                    <materialDesign:PackIcon
+                        Kind="Stop"
+                        Height="24"
+                        Width="24" />
+                </Button>
+                <Button Click="awlEditLoad"
+                    Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                    ToolTip="Edit" Margin="737.733,449.933,93.733,141.767" Height="Auto" Width="Auto" Foreground="#DDFFFFFF" BorderBrush="{x:Null}" Background="#FFDAB425">
+                    <materialDesign:PackIcon
+                        Kind="Edit"
+                        Height="24"
+                        Width="24" />
+                </Button>
+                <Rectangle Fill="#FF232323" HorizontalAlignment="Left" Height="43.2" Margin="23.2,502.633,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="818"/>
+                <TextBlock HorizontalAlignment="Left" Height="22.533" Margin="47.733,511.566,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" Foreground="White" FontSize="14"/>
+                <Rectangle Fill="#FF232323" HorizontalAlignment="Left" Height="43.2" Margin="23.2,563.433,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="818"/>
+                <TextBlock HorizontalAlignment="Left" Height="22.533" Margin="47.733,572.366,0,0" TextWrapping="Wrap" Text="???" VerticalAlignment="Top" Width="100" Foreground="White" FontSize="14"/>
+            </Grid>
+
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="706.264" Margin="908.666,30.736,-7.999,0" VerticalAlignment="Top" Width="267.333" Background="#FF272B2F" RenderTransformOrigin="0.5,0.5">
+
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.093"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Grid HorizontalAlignment="Left" Height="164.2" Margin="30,226.974,0,0" VerticalAlignment="Top" Width="232.933">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="29*"/>
+                    <RowDefinition Height="12*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160*"/>
+                    <ColumnDefinition Width="0*"/>
+                    <ColumnDefinition Width="21*"/>
+                    <ColumnDefinition Width="52*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle materialDesign:ShadowAssist.ShadowDepth="Depth5" Fill="#FF232323" HorizontalAlignment="Left" Height="106.141" Margin="-3.998,0,0,0" VerticalAlignment="Top" Width="226.931" RadiusX="15" RadiusY="15" Grid.ColumnSpan="4"/>
+                <TextBlock Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="122.933" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174.4" Foreground="White" Grid.RowSpan="2"><Run FontSize="14" Text="Successful Checkouts:"/><LineBreak/><Run/><LineBreak/></TextBlock>
+
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="58.6" VerticalAlignment="Top" Width="252.933" Margin="10,10,0,0">
+                <Rectangle materialDesign:ShadowAssist.ShadowDepth="Depth5" Fill="#FF313131" HorizontalAlignment="Left" Height="62.2" Margin="16.399,10,0,-13.6" VerticalAlignment="Top" Width="226.534" RadiusX="15" RadiusY="15"/>
+                <TextBlock x:Name="keyUser" HorizontalAlignment="Left" Height="20.44" Margin="26.385,28.16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117.335" Foreground="White" Text="User#1234" FontSize="14"/>
+                <Ellipse  x:Name="userIMG" Fill="#FF313131" HorizontalAlignment="Left" Height="53.665" Margin="174.269,13.734,0,-8.799" VerticalAlignment="Top" Width="55.919" Stroke="#FF560099"/>
+
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="164.2" Margin="20,98.396,0,0" VerticalAlignment="Top" Width="232.933">
+
+                <Rectangle materialDesign:ShadowAssist.ShadowDepth="Depth5" Fill="#FF232323" HorizontalAlignment="Left" Height="105.825" Margin="5.999,10,0,0" VerticalAlignment="Top" Width="226.934" RadiusX="15" RadiusY="15"/>
+                <TextBlock HorizontalAlignment="Left" Height="28.734" Margin="19.533,22.066,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188.8" Foreground="White" FontSize="14"><Run Text="Failed Checkouts:"/><LineBreak/><Run/><LineBreak/></TextBlock>
+                <materialDesign:PackIcon Kind="CreditCardMinus" HorizontalAlignment="Left" Height="37.371" Margin="150.093,22.066,0,0" VerticalAlignment="Top" Width="63.773" Foreground="Red"/>
+                <materialDesign:PackIcon  Kind="CheckAll" HorizontalAlignment="Left" Height="35.646" Margin="167.868,139.416,0,-10.862" VerticalAlignment="Top" Width="45.998" Foreground="#FF06FF00" BorderBrush="Red" OpacityMask="#FFF00808" RenderTransformOrigin="0.89,0.233"/>
+                <TextBlock  x:Name="FailedCheckouts" HorizontalAlignment="Left" Height="52.02" Margin="32.735,55.8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175.598" Foreground="White" FontSize="36" Text="0"/>
+                <TextBlock  x:Name="SuccessfulCheckouts" HorizontalAlignment="Left" Height="52.02" Margin="32.735,160.998,0,-48.818" TextWrapping="Wrap" VerticalAlignment="Top" Width="175.598" Foreground="White" FontSize="36" Text="0"/>
+
+            </Grid>
+            <Button materialDesign:ShadowAssist.ShadowDepth="Depth5" Click="delStats"
+  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+  ToolTip="Clear all saved Stats" Margin="204.843,595.593,22.489,70.67" Background="Red" BorderBrush="{x:Null}">
+                <materialDesign:PackIcon
+    Kind="Delete"
+    Height="24"
+    Width="24" />
+            </Button>
+            <Button materialDesign:ShadowAssist.ShadowDepth="Depth5" Click="updateUserStats"
+                Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                ToolTip="Reload Stats" Margin="119.509,595.593,107.823,70.67" Background="#FF4076F3" BorderBrush="{x:Null}">
+                <materialDesign:PackIcon
+                    Kind="Reload"
+                    Height="24"
+                    Width="24" />
+            </Button>
+            <Button materialDesign:ShadowAssist.ShadowDepth="Depth5" Click="openDiscord"
+                Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                ToolTip="Harvester" Margin="33.379,595.593,193.954,70.67" Background="#FF560099" BorderBrush="{x:Null}">
+                <materialDesign:PackIcon
+                    Kind="Google"
+                    Height="24"
+                    Width="24" >
+                    <materialDesign:PackIcon.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Red" Offset="0.299"/>
+                            <GradientStop Color="#FF00208E" Offset="0.663"/>
+                            <GradientStop Color="#FFFFEE00"/>
+                            <GradientStop Color="#FF29CB00" Offset="1"/>
+                        </LinearGradientBrush>
+                    </materialDesign:PackIcon.Foreground>
+                </materialDesign:PackIcon>
+            </Button>
+            <Button materialDesign:ShadowAssist.ShadowDepth="Depth5" Click="startTurbo"
+                Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                ToolTip="Start" Margin="33.379,645.462,193.954,20.801" Background="#FF560099" BorderBrush="{x:Null}">
+                <materialDesign:PackIcon
+                    Kind="Play"
+                    Height="24"
+                    Width="24" Foreground="White" />
+            </Button>
+            <Button materialDesign:ShadowAssist.ShadowDepth="Depth5" Click="stopTurbo"
+                Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                ToolTip="Stop" Margin="204.843,645.462,22.489,20.801" Background="#FF560099" BorderBrush="{x:Null}">
+                <materialDesign:PackIcon
+                    Kind="Stop"
+                    Height="24"
+                    Width="24" Foreground="White" />
+            </Button>
+            <TextBlock HorizontalAlignment="Left" Height="29.769" Margin="94.18,651.654,0,0" TextWrapping="Wrap" Text="Turbo-2Captcha" VerticalAlignment="Top" Width="96.221" Foreground="#FFA0A0A0"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="164.2" Margin="935.067,485.6,0,0" VerticalAlignment="Top" Width="232.933">
+            <Rectangle materialDesign:ShadowAssist.ShadowDepth="Depth5" Fill="#FF232323" HorizontalAlignment="Left" Height="104.2" Margin="0,20,0,0" VerticalAlignment="Top" Width="222.933" RadiusX="15" RadiusY="15">
+
+            </Rectangle>
+            <materialDesign:PackIcon Kind="CartOutline" HorizontalAlignment="Left" Height="37.909" Margin="144.733,35.56,0,0" VerticalAlignment="Top" Width="63.6" Foreground="#FF00DFFF"/>
+            <TextBlock HorizontalAlignment="Left" Height="24.067" Margin="20.533,35.56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" Foreground="White" FontSize="14"><Run Text="Carted"/><Run Text=" Products"/><Run Text=":"/></TextBlock>
+            <TextBlock x:Name="CartedProducts" HorizontalAlignment="Left" Height="50.242" Margin="26.8,50.667,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157.6" Foreground="White" FontSize="36" Text="0"/>
+            <Rectangle materialDesign:ShadowAssist.ShadowDepth="Depth5" Fill="#FF232323" HorizontalAlignment="Left" Height="111.533" Margin="0,-106.533,0,0" VerticalAlignment="Top" Width="222.933" RadiusX="15" RadiusY="15"/>
+            <materialDesign:PackIcon Kind="Paypal" HorizontalAlignment="Left" Height="37.909" Margin="144.733,-99.042,0,0" VerticalAlignment="Top" Width="63.6" Foreground="#FFFF00EE"/>
+            <TextBlock HorizontalAlignment="Left" Height="24.067" Margin="20.533,-90.2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" Foreground="White" FontSize="14" Text="PayPal Checkouts:"/>
+            <TextBlock x:Name="paypalCheckouts" HorizontalAlignment="Left" Height="50.242" Margin="26.8,-61.133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157.6" Foreground="White" FontSize="36" Text="0"/>
+
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="602.2" Margin="21.2,106.703,0,0" VerticalAlignment="Top" Width="864" Name="taskManager">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="29*"/>
+                <ColumnDefinition Width="403*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="457*"/>
+                <RowDefinition Height="145*"/>
+            </Grid.RowDefinitions>
+            <Rectangle Fill="#FF272B2F" HorizontalAlignment="Left" Height="582.2" Margin="10,10,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="844" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+            <Rectangle HorizontalAlignment="Left" Height="3.2" Margin="10,70.2,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="844" Fill="#FF560099" Grid.ColumnSpan="2"/>
+            <Grid Name="bstnTab" HorizontalAlignment="Left" Height="499.2" Margin="11.068,78.4,0,0" VerticalAlignment="Top" Width="830.7" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                <Rectangle Fill="#FF0D0013" HorizontalAlignment="Left" Height="112.2" Margin="10,10,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="240.533"/>
+                <ComboBox Name="bstnTaskN"
+  materialDesign:HintAssist.Hint="Enter Task Name"
+  materialDesign:TextFieldAssist.HasClearButton="False"
+  IsEditable="True"
+  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+    materialDesign:HintAssist.HelperText="Save a Task with a unique identifier to find it later" Margin="271.2,47.45,296,406.65" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF">
+                    <ComboBoxItem
+    IsSelected="True">
+                        New Task
+                    </ComboBoxItem>
+                </ComboBox>
+                <TextBox x:Name="bstnURL"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  Text=""
+  VerticalAlignment="Center"
+  materialDesign:TextFieldAssist.HasClearButton="False"
+  materialDesign:TextFieldAssist.SuffixText="" Margin="20.133,143.9,567.867,314.7" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+      Orientation="Horizontal"
+      Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+        Kind="Link" />
+                            <TextBlock>
+      Product URL
+                            </TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <TextBox x:Name="bstnSizes"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="eg. 44,45,45.5" Margin="20.133,203.9,567.867,254.7" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Ruler" />
+                            <TextBlock><Run Text="Product Sizes"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <TextBox x:Name="bstnTaskAmount"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="" Margin="558.933,51.95,91.467,406.65" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Counter" />
+                            <TextBlock><Run Text="Amount of Tasks"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <TextBox x:Name="bstnCproxy"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="only IP:PORT" Margin="20.133,270.033,567.867,188.567" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="GoogleChrome" />
+                            <TextBlock><Run Text="Browser Proxy"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <ComboBox Name="bstnProfile"
+                    materialDesign:HintAssist.Hint="Select Profile"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    IsEditable="True"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:HintAssist.HelperText="" Margin="40.932,341.45,567.867,112.65" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF">
+
+
+                </ComboBox>
+                <ComboBox Name="bstnProxy"
+                    materialDesign:HintAssist.Hint="Select Proxy list"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    IsEditable="True"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:HintAssist.HelperText="" Margin="40.932,422.65,567.867,31.45" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF">
+                    <ComboBoxItem
+                        IsSelected="True" Content="localhost"/>
+                </ComboBox>
+                <materialDesign:PackIcon Kind="Web" HorizontalAlignment="Left" Height="23.283" Margin="20.133,438.6,0,0" VerticalAlignment="Top" Width="15.799" Foreground="White"/>
+                <materialDesign:PackIcon Kind="UserAddOutline" HorizontalAlignment="Left" Height="27.017" Margin="20.133,354.2,0,0" VerticalAlignment="Top" Width="15.799" Foreground="White" RenderTransformOrigin="0.627,0.355"/>
+                <ToggleButton x:Name="bstnUseHarv"
+                    Style="{StaticResource MaterialDesignActionToggleButton}"
+                    ToolTip="Click to select!" Margin="333.649,152.5,465.051,314.7" Background="#FF560099">
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+                            Kind="Check" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="Close" />
+                </ToggleButton>
+                <Button Click="bstnSave"
+    Style="{DynamicResource MaterialDesignRaisedButton}"
+    materialDesign:ShadowAssist.ShadowDepth="Depth5" Margin="345.35,426.15,435.45,31.45" RenderTransformOrigin="0.531,0.5" BorderBrush="{x:Null}" Height="Auto">
+                    <materialDesign:PackIcon Kind="ContentSave"/>
+                </Button>
+                <Button Click="delBSTN"
+    Style="{DynamicResource MaterialDesignRaisedButton}"
+    materialDesign:ShadowAssist.ShadowDepth="Depth5" Margin="457.999,426.15,320.401,31.45" Background="#FF560099" BorderBrush="{x:Null}" Height="Auto">
+                    <materialDesign:PackIcon Kind="Delete"/>
+                </Button>
+                <TextBlock HorizontalAlignment="Left" Height="25.858" Margin="403.099,158.642,0,0" TextWrapping="Wrap" Text="Use Captcha Harvester" VerticalAlignment="Top" Width="253.2" FontSize="14" Foreground="White"/>
+                <TextBox x:Name="bstnDelay"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="[ms]" Margin="345.35,340.617,242.65,117.983" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Link" />
+                            <TextBlock><Run Text="Retrydelay"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <Image Margin="65.067,12.933,636.633,381.4" Source="Image24.png" Stretch="Fill"/>
+                <Button Click="loadBSTN"
+                    Style="{DynamicResource MaterialDesignRaisedButton}"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth5" Margin="403.099,426.15,377.701,31.45" RenderTransformOrigin="0.531,0.5" BorderBrush="{x:Null}" Height="Auto">
+                    <materialDesign:PackIcon Kind="Edit"/>
+                </Button>
+                <ToggleButton x:Name="bstnBrowser3Ds"
+                    Style="{StaticResource MaterialDesignActionToggleButton}"
+                    ToolTip="Click to select!" Margin="333.649,203.966,465.051,263.233" Background="#FF560099">
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+                            Kind="Check" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="Close" />
+                </ToggleButton>
+                <TextBlock HorizontalAlignment="Left" Height="25.858" Margin="403.099,210.109,0,0" TextWrapping="Wrap" Text="Browser 3D Secure" VerticalAlignment="Top" Width="253.2" FontSize="14" Foreground="White"/>
+
+            </Grid>
+
+            <Button x:Name="showBSTN" Click="triggerBstnSelection" Content="BSTN" HorizontalAlignment="Left" Height="36.6" Margin="23.3,36.8,0,0" VerticalAlignment="Top" Width="70.934" BorderBrush="#FF560099" Background="{x:Null}" Grid.ColumnSpan="2"/>
+            <Button x:Name="showEinh" Click="trigger43einOptions" Content="43einhalb" HorizontalAlignment="Left" Height="36.6" Margin="41.301,36.8,0,0" VerticalAlignment="Top" Width="95.2" BorderBrush="#FF560099" Background="{x:Null}" Grid.Column="1"/>
+            <Button x:Name="showmontrose" Click="triggerMontroseOptions"  Content="18montrose" HorizontalAlignment="Left" Height="36.6" Margin="141.501,36.8,0,0" VerticalAlignment="Top" Width="107.733" BorderBrush="#FF560099" Background="{x:Null}" Grid.Column="1"/>
+            <Button x:Name="showSvd" Click="triggerSvdOptions" Content="SivasDesCalzo" HorizontalAlignment="Left" Height="36.6" Margin="254.234,36.8,0,0" VerticalAlignment="Top" Width="124.267" BorderBrush="#FF560099" Background="{x:Null}" Grid.Column="1"/>
+            <Button x:Name="showAWL" Click="triggerAwlOptions" Content="Aw-Lab" HorizontalAlignment="Left" Height="36.6" Margin="383.501,36.8,0,0" VerticalAlignment="Top" Width="100.8" BorderBrush="#FF560099" Background="{x:Null}" Grid.Column="1"/>
+            <Button x:Name="shopSegonsSelection" Click="showSegons"  Content="24segons" HorizontalAlignment="Left" Height="36.6" Margin="489.301,36.8,0,0" VerticalAlignment="Top" Width="107.2" BorderBrush="#FF560099" Background="{x:Null}" Grid.Column="1"/>
+            <Button x:Name="showB4B" Click="triggerB4bOptions" Content="B4B" HorizontalAlignment="Left" Height="36.6" Margin="601.501,36.8,0,0" VerticalAlignment="Top" Width="72.8" BorderBrush="#FF560099" Background="{x:Null}" Grid.Column="1"/>
+            <Grid x:Name="einhManager" HorizontalAlignment="Left" Height="476.8" Margin="11.068,111.183,0,0" VerticalAlignment="Top" Width="820.568" Grid.RowSpan="2" Grid.ColumnSpan="2">
+                <Rectangle Fill="Black" HorizontalAlignment="Left" Height="120.8" Margin="10,0,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="242.701" Opacity="1"/>
+                <TextBox x:Name="einhalbURL"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  Text=""
+  VerticalAlignment="Center"
+  materialDesign:TextFieldAssist.HasClearButton="False"
+  materialDesign:TextFieldAssist.SuffixText="" Margin="20.133,133.96,567.867,294.773" Background="#FF272B2F" Foreground="White" FontSize="14" Height="48.067" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+      Orientation="Horizontal"
+      Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+        Kind="Link" />
+                            <TextBlock><Run Text="Product URL"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <TextBox Name="einhalbSizes"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="eg. 40,40.5" Margin="20.133,191.4,567.867,237.333" Background="#FF272B2F" Foreground="White" FontSize="14" Height="48.067" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Ruler" />
+                            <TextBlock><Run Text="Product Sizes"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <TextBox Name="einhalbCproxy"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="only IP:PORT" Margin="20.133,259.134,567.867,169.599" Background="#FF272B2F" Foreground="White" FontSize="14" Height="48.067" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Link" />
+                            <TextBlock><Run Text="Browser Proxy"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <ComboBox Name="einhalbProfile"
+                    materialDesign:HintAssist.Hint="Select Profile"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    IsEditable="True"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:HintAssist.HelperText="" Margin="40.932,325.184,567.867,106.516" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF">
+
+
+                </ComboBox>
+                <ComboBox Name="einhalbProxylist"
+                    materialDesign:HintAssist.Hint="Select Proxy list"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    IsEditable="True"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:HintAssist.HelperText="" Margin="40.932,404.25,567.867,27.45" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF">
+                    <ComboBoxItem
+                        IsSelected="True" Content="localhost"/>
+                </ComboBox>
+                <materialDesign:PackIcon Kind="Web" HorizontalAlignment="Left" Height="32.083" Margin="20.133,417.267,0,0" VerticalAlignment="Top" Width="15.799" Foreground="White" RenderTransformOrigin="0.532,0.455"/>
+                <materialDesign:PackIcon Kind="UserAddOutline" HorizontalAlignment="Left" Height="27.017" Margin="20.133,340.467,0,0" VerticalAlignment="Top" Width="15.799" Foreground="White" RenderTransformOrigin="0.627,0.355"/>
+                <ComboBox Name="einhalbTaskn"
+  materialDesign:HintAssist.Hint="Enter Task Name"
+  materialDesign:TextFieldAssist.HasClearButton="False"
+  IsEditable="True"
+  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+    materialDesign:HintAssist.HelperText="Save a Task with a unique identifier to find it later" Margin="279.733,61.7,308.267,370" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF">
+                    <ComboBoxItem
+    IsSelected="True">
+                        New Task
+                    </ComboBoxItem>
+                </ComboBox>
+                <TextBox x:Name="einhUsern"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="" Margin="279.733,133.96,308.267,294.773" Background="#FF272B2F" Foreground="White" FontSize="14" Height="48.067" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="TooltipUser" />
+                            <TextBlock><Run Text="Release Username"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <TextBox x:Name="einPassword"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="" Margin="279.733,191.4,308.267,237.333" Background="#FF272B2F" Foreground="White" FontSize="14" Height="48.067" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Key" />
+                            <TextBlock><Run Text="Release Password"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <TextBox x:Name="einhTasks"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="" Margin="542.133,58.733,45.867,370" Background="#FF272B2F" Foreground="White" FontSize="14" Height="48.067" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Counter" />
+                            <TextBlock><Run Text="Amount of Threads"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <ToggleButton x:Name="einhCad"
+                    Style="{StaticResource MaterialDesignActionToggleButton}"
+                    ToolTip="Click to select!" Margin="279.733,275.201,508.835,169.599" Background="#FF560099">
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+                            Kind="Check" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="Close" />
+                </ToggleButton>
+                <ToggleButton x:Name="einInstore"
+                    Style="{StaticResource MaterialDesignActionToggleButton}"
+                    ToolTip="Click to select!" Margin="542.133,275.201,246.435,169.599" Background="#FF560099">
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+                            Kind="Check" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="Close" />
+                </ToggleButton>
+                <ToggleButton x:Name="einhHarv"
+                    Style="{StaticResource MaterialDesignActionToggleButton}"
+                    ToolTip="Click to select!" Margin="279.733,340.467,508.835,104.333" Background="#FF560099">
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+                            Kind="Check" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="Close" />
+                </ToggleButton>
+                <ToggleButton x:Name="einhChrome"
+                    Style="{StaticResource MaterialDesignActionToggleButton}"
+                    ToolTip="Click to select!" Margin="542.133,340.467,246.435,104.333" Background="#FF560099">
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+                            Kind="Check" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="Close" />
+                </ToggleButton>
+                <TextBlock HorizontalAlignment="Left" Height="27.401" Margin="322.133,279.8,0,0" TextWrapping="Wrap" Text="CAD Checkout" VerticalAlignment="Top" Width="119.467" FontSize="14" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Height="27.401" Margin="322.133,345.066,0,0" TextWrapping="Wrap" Text="Use Harvester" VerticalAlignment="Top" Width="119.467" FontSize="14" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Height="27.401" Margin="594.133,279.8,0,0" TextWrapping="Wrap" Text="Instore Pickup Frankfurt" VerticalAlignment="Top" Width="180.568" FontSize="14" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Height="27.401" Margin="594.133,345.066,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180.568" FontSize="14" Foreground="White"><Run Text="Chrome Extension"/><Run Text=" Checkout"/></TextBlock>
+                <Button Click="saveEinh" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="45.1" Margin="283.3,404.25,0,0" VerticalAlignment="Top" Width="54" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="ContentSave"/>
+                </Button>
+                <Button Click="delEinh" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="45.1" Margin="412.701,404.25,0,0" VerticalAlignment="Top" Width="56" Background="#FF560099" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="Delete"/>
+                </Button>
+                <TextBox x:Name="einDelay"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="[ms]" Margin="542.133,133.96,45.867,294.773" Background="#FF272B2F" Foreground="White" FontSize="14" Height="48.067" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Key" />
+                            <TextBlock><Run Text="Retrydelay"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <Button Click="loadEinh" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="45.1" Margin="347.9,404.25,0,0" VerticalAlignment="Top" Width="54" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="Edit"/>
+                </Button>
+                <Image Margin="69.2,10,627.368,370" Source="Image23.png" Stretch="Fill"/>
+
+            </Grid>
+            <Grid Name="segonsTab" HorizontalAlignment="Left" Height="498.3" Margin="28.4,103.9,0,0" VerticalAlignment="Top" Width="825.6" Grid.RowSpan="2" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="211*"/>
+                    <ColumnDefinition Width="615*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle Fill="Black" HorizontalAlignment="Left" Height="113.516" Margin="10,10,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="237.6" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="segonsURL"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  Text=""
+  VerticalAlignment="Center"
+  materialDesign:TextFieldAssist.HasClearButton="False"
+  materialDesign:TextFieldAssist.SuffixText="" Margin="10,128.516,578,329.184" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF" Grid.ColumnSpan="2">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+      Orientation="Horizontal"
+      Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+        Kind="Link" />
+                            <TextBlock>
+      Product SKU or Variants
+                            </TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+
+                <ToggleButton Name="segonsEarlyLogin"
+
+  Style="{StaticResource MaterialDesignActionLightToggleButton}"
+  IsChecked="False"
+  ToolTip="Enable / Disable" Margin="91.867,136.169,490.933,330.13" BorderBrush="{x:Null}" Background="#FF560099" Foreground="#DDFFFFFF" Grid.Column="1"
+                    >
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+                            Kind="Check" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="Close" />
+                </ToggleButton>
+                <TextBox x:Name="segonsSizes"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="" Margin="10,187.183,578,270.517" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF" Grid.ColumnSpan="2">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Ruler" />
+                            <TextBlock><Run Text="Product Size"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <materialDesign:PackIcon Kind="UserAddOutline" HorizontalAlignment="Left" Height="27.017" Margin="10,277.933,0,0" VerticalAlignment="Top" Width="15.799" Foreground="White" RenderTransformOrigin="0.627,0.355"/>
+                <ComboBox Name="segonsProfile"
+                    materialDesign:HintAssist.Hint="Select Profile"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    IsEditable="True"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:HintAssist.HelperText="" Margin="30.799,259.85,578,193.35" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF" Grid.ColumnSpan="2">
+
+
+                </ComboBox>
+                <ComboBox x:Name="segonsProxylist"
+                    materialDesign:HintAssist.Hint="Select Proxylist"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    IsEditable="True"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:HintAssist.HelperText="" Margin="30.799,334.917,578,118.283" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF" Grid.ColumnSpan="2">
+                    <ComboBoxItem Content="localhost" IsSelected="True"/>
+                </ComboBox>
+                <materialDesign:PackIcon Kind="Web" HorizontalAlignment="Left" Height="27.017" Margin="10,347.667,0,0" VerticalAlignment="Top" Width="15.799" Foreground="White" RenderTransformOrigin="0.627,0.355"/>
+                <TextBox x:Name="segonsTaskAmount"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="" Margin="324.533,39.883,52.667,413.317" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF" Grid.Column="1">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Counter" />
+                            <TextBlock><Run Text="Amount of Tasks"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <ComboBox x:Name="segonsTaskName"
+                    materialDesign:HintAssist.Hint="Enter Task Name"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:HintAssist.HelperText="" IsEditable="True" Margin="63.599,39.883,334.4,413.317" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF" Grid.Column="1">
+                    <ComboBoxItem Content="New Task" IsSelected="True"/>
+                </ComboBox>
+                <Button Click="saveSegons" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="46.4" Margin="71.067,387.617,0,0" VerticalAlignment="Top" Width="52.8" BorderBrush="{x:Null}" Grid.Column="1">
+                    <materialDesign:PackIcon Kind="ContentSave"/>
+                </Button>
+                <Button Click="delSegons" materialDesign:ShadowAssist.ShadowDepth="Depth5"  HorizontalAlignment="Left" Height="46.4" Margin="191.133,388.917,0,0" VerticalAlignment="Top" Width="51.2" BorderBrush="{x:Null}" Background="#FF560099" Grid.Column="1">
+                    <materialDesign:PackIcon Kind="Delete"/>
+                </Button>
+                <TextBox x:Name="segonsDelay"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="[ms]" Margin="10,394.717,578,62.983" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF" Grid.ColumnSpan="2">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Clock" />
+                            <TextBlock><Run Text="Retrydelay"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <Button Click="loadSegons" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="46.4" Margin="133.333,387.617,0,0" VerticalAlignment="Top" Width="52.8" BorderBrush="{x:Null}" Grid.Column="1">
+                    <materialDesign:PackIcon Kind="Edit"/>
+                </Button>
+                <TextBlock HorizontalAlignment="Left" Height="25.34" Margin="144.033,142.829,0,0" TextWrapping="Wrap" Text="Early Login" VerticalAlignment="Top" Width="188.8" Foreground="White" Grid.Column="1"/>
+                <ToggleButton x:Name="segonsCartClear"
+
+                    Style="{StaticResource MaterialDesignActionLightToggleButton}"
+                    IsChecked="False"
+                    ToolTip="Enable / Disable" Margin="91.867,187.183,490.933,279.117" BorderBrush="{x:Null}" Background="#FF560099" Foreground="#DDFFFFFF" Grid.Column="1"
+                    >
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+                            Kind="Check" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="Close" />
+                </ToggleButton>
+                <TextBlock HorizontalAlignment="Left" Height="25.34" Margin="144.033,193.843,0,0" TextWrapping="Wrap" Text="Clear Cart" VerticalAlignment="Top" Width="188.8" Foreground="White" Grid.Column="1"/>
+                <Image Margin="52.8,25.083,13,387.101" Source="Image31.jpg" Stretch="Fill"/>
+            </Grid>
+            <Grid Name="SVDPanel" HorizontalAlignment="Left" Height="496.5" Margin="39.732,83.972,0,0" VerticalAlignment="Top" Width="814.268" Grid.RowSpan="2" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="144*"/>
+                    <RowDefinition Height="353*"/>
+                </Grid.RowDefinitions>
+                <Rectangle Fill="Black" HorizontalAlignment="Left" Height="112.2" Margin="10,10,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="240.533"/>
+                <TextBox x:Name="svdURL"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  Text=""
+  VerticalAlignment="Center"
+  materialDesign:TextFieldAssist.HasClearButton="False"
+  materialDesign:TextFieldAssist.SuffixText="" Margin="10,127.2,563.735,328.7" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF" Grid.RowSpan="2">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+      Orientation="Horizontal"
+      Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+        Kind="Link" />
+                            <TextBlock>
+      Product URL
+                            </TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <TextBox x:Name="svdSizes"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="eg. 9,10,10.5" Margin="10,40.616,563.735,271.484" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF" Grid.Row="1">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Ruler" />
+                            <TextBlock><Run Text="Product Sizes"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <materialDesign:PackIcon Kind="UserAddOutline" HorizontalAlignment="Left" Height="27.017" Margin="12.933,111.2,0,0" VerticalAlignment="Top" Width="15.799" Foreground="White" RenderTransformOrigin="0.627,0.355" Grid.Row="1"/>
+                <ComboBox x:Name="svdProfile"
+                    materialDesign:HintAssist.Hint="Select Profile"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    IsEditable="True"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:HintAssist.HelperText="" Margin="33.732,99.517,563.735,208.083" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF" Grid.Row="1"/>
+                <ComboBox x:Name="svdProxylist"
+                    materialDesign:HintAssist.Hint="Select Proxylist"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    IsEditable="True"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:HintAssist.HelperText="" Margin="33.732,165.65,563.735,141.95" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF" Grid.Row="1">
+                    <ComboBoxItem Content="localhost" IsSelected="True"/>
+                </ComboBox>
+                <ComboBox x:Name="svdTaskName"
+                    materialDesign:HintAssist.Hint="Enter Task Name"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    IsEditable="True"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:HintAssist.HelperText="" Margin="284.532,41.85,312.935,56.85" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF">
+                    <ComboBoxItem Content="New Task" IsSelected="True"/>
+                </ComboBox>
+                <TextBox x:Name="svdTaskAmount"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="" Margin="546.4,41.85,45.335,56.85" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Counter" />
+                            <TextBlock><Run Text="Task Amount"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <TextBox x:Name="svdDelay"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="" Margin="12.933,233.25,563.735,74.35" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF" Grid.Row="1">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Clock" />
+                            <TextBlock><Run Text="Retrydelay"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <Button Click="saveSVD" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="46.4" Margin="281.867,243.817,0,0" VerticalAlignment="Top" Width="52.8" BorderBrush="{x:Null}" Grid.Row="1">
+                    <materialDesign:PackIcon Kind="ContentSave"/>
+                </Button>
+                <Button Click="delSivas" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="46.4" Margin="399.5,243.817,0,0" VerticalAlignment="Top" Width="52.8" BorderBrush="{x:Null}" Background="#FF560099" Grid.Row="1">
+                    <materialDesign:PackIcon Kind="Delete"/>
+                </Button>
+                <materialDesign:PackIcon Kind="Web" HorizontalAlignment="Left" Height="27.017" Margin="12.933,175.733,0,0" VerticalAlignment="Top" Width="15.799" Foreground="White" RenderTransformOrigin="0.627,0.355" Grid.Row="1"/>
+                <Image Margin="77.2,16.4,636.001,26.855" Source="Image19.png" Stretch="Fill"/>
+                <Button Click="loadSVDTask"  materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="46.4" Margin="341.7,243.817,0,0" VerticalAlignment="Top" Width="52.8" BorderBrush="{x:Null}" Grid.Row="1">
+                    <materialDesign:PackIcon Kind="Edit"/>
+                </Button>
+            </Grid>
+            <Grid x:Name="awTab" HorizontalAlignment="Left" Height="513.8" Margin="25.7,88.4,0,0" VerticalAlignment="Top" Width="816.068" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                <Rectangle Fill="Black" HorizontalAlignment="Left" Height="112.2" Margin="10,10,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="240.533"/>
+                <Image Margin="70.299,10,618.903,392.333" Source="Image15.png" Stretch="Fill" OpacityMask="Black"/>
+                <TextBox x:Name="awlUrl"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="" Margin="10,140.8,565.535,332.4" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Link" />
+                            <TextBlock><Run Text="Product URL or SKU"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <TextBox x:Name="awlSizes"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="eg. 40,40 2/3" Margin="10,202.4,565.535,270.8" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Ruler" />
+                            <TextBlock><Run Text="Product Sizes"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <TextBox x:Name="awlCproxy"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="ip:port" Margin="10,258.4,565.535,214.8" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="GoogleChrome" />
+                            <TextBlock><Run Text="Browser Proxy"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <materialDesign:PackIcon Kind="UserAddOutline" HorizontalAlignment="Left" Height="36.617" Margin="10,320.966,0,0" VerticalAlignment="Top" Width="15.799" Foreground="White" RenderTransformOrigin="0.627,0.355"/>
+                <ComboBox x:Name="awlProfile"
+                    materialDesign:HintAssist.Hint="Select Profile"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    IsEditable="True"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:HintAssist.HelperText="" Margin="33.732,312.483,565.535,156.217" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF"/>
+                <materialDesign:PackIcon Kind="Web" HorizontalAlignment="Left" Height="45.1" Margin="12.933,377.833,0,0" VerticalAlignment="Top" Width="15.799" Foreground="White" RenderTransformOrigin="0.627,0.355"/>
+                <ComboBox x:Name="awlProxylist"
+                    materialDesign:HintAssist.Hint="Select Proxylist"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    IsEditable="True"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:HintAssist.HelperText="" Margin="33.732,377.833,565.535,90.867" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF">
+                    <ComboBoxItem Content="localhost" IsSelected="True"/>
+                </ComboBox>
+                <TextBox x:Name="awlDelay"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="[ms]" Margin="10,438.067,565.535,35.133" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Clock" />
+                            <TextBlock><Run Text="Retrydelay"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <ComboBox x:Name="awlTaskName"
+                    materialDesign:HintAssist.Hint="Enter Task Name"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    IsEditable="True"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:HintAssist.HelperText="" Margin="267.332,42.4,295.935,426.3" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF">
+                    <ComboBoxItem Content="New Task" IsSelected="True"/>
+                </ComboBox>
+                <TextBox x:Name="awlTaskAmount"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="" Margin="552.4,46.9,23.135,426.3" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Counter" />
+                            <TextBlock><Run Text="Amount of Tasks"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <ToggleButton x:Name="awlCOD"
+                    Style="{StaticResource MaterialDesignActionToggleButton}"
+                    ToolTip="Click to select!" Margin="332.816,149.4,451.251,332.4" Background="#FF560099">
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+                            Kind="Check" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="Close" />
+                </ToggleButton>
+                <TextBlock HorizontalAlignment="Left" Height="27.6" Margin="387.3,153.8,0,0" TextWrapping="Wrap" Text="Cash on Delivery [IT only]" VerticalAlignment="Top" Width="166.4" FontSize="14" Foreground="White"/>
+                <TextBox x:Name="awlDiscount"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="[use news_01]" Margin="332.816,202.4,242.718,270.8" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Discount" />
+                            <TextBlock><Run Text="Discount Code"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <Button Click="awlabSave" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="43.2" Margin="284.651,435.467,0,0" VerticalAlignment="Top" Width="52.699" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="ContentSave"/>
+                </Button>
+                <Button Click="delAwl" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="43.2" Margin="414.084,435.467,0,0" VerticalAlignment="Top" Width="48.166" BorderBrush="{x:Null}" Background="#FF560099">
+                    <materialDesign:PackIcon Kind="Delete"/>
+                </Button>
+                <Button Click="loadAWL" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="43.2" Margin="349.451,435.467,0,0" VerticalAlignment="Top" Width="52.699" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="Edit"/>
+                </Button>
+                <ToggleButton x:Name="awl3ds"
+                    Style="{StaticResource MaterialDesignActionToggleButton}"
+                    ToolTip="Click to select!" Margin="594.416,149.4,189.651,332.4" Background="#FF560099">
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+                            Kind="Check" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="Close" />
+                </ToggleButton>
+                <TextBlock  HorizontalAlignment="Left" Height="27.6" Margin="649.668,153.8,0,0" TextWrapping="Wrap" Text="Browser 3D Secure" VerticalAlignment="Top" Width="143.265" FontSize="14" Foreground="White"/>
+
+            </Grid>
+            <Grid Name="b4bTab" HorizontalAlignment="Left" Height="498" Margin="22.7,89.983,0,0" VerticalAlignment="Top" Width="831.3" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                <Rectangle Fill="Black" HorizontalAlignment="Left" Height="112.2" Margin="10,10,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="240.533"/>
+                <TextBox x:Name="b4bURL"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="" Margin="10,134.667,580.767,322.733" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Link" />
+                            <TextBlock><Run Text="Product URL"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <TextBox x:Name="b4bSizes"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="eg. 40,40.5" Margin="10,187.2,580.767,270.2" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Ruler" />
+                            <TextBlock><Run Text="Product Sizes"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <materialDesign:PackIcon Kind="UserAddOutline" HorizontalAlignment="Left" Height="27.017" Margin="12.933,255.055,0,0" VerticalAlignment="Top" Width="15.799" Foreground="White" RenderTransformOrigin="0.627,0.355"/>
+                <ComboBox x:Name="b4bProfile"
+                    materialDesign:HintAssist.Hint="Select Profile"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    IsEditable="True"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:HintAssist.HelperText="" Margin="33.732,243.345,580.767,209.555" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF"/>
+                <materialDesign:PackIcon Kind="Web" HorizontalAlignment="Left" Height="27.017" Margin="12.933,317.455,0,0" VerticalAlignment="Top" Width="15.799" Foreground="White" RenderTransformOrigin="0.627,0.355"/>
+                <ComboBox x:Name="b4bProxyList"
+                    materialDesign:HintAssist.Hint="Select Proxylist"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    IsEditable="True"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:HintAssist.HelperText="" Margin="33.732,305.745,580.767,147.155" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF">
+                    <ComboBoxItem Content="localhost" IsSelected="True"/>
+                </ComboBox>
+                <TextBox x:Name="b4bDelay"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="[ms]" Margin="10,376.8,580.767,80.6" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Clock" />
+                            <TextBlock><Run Text="Retrydelay"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <ComboBox x:Name="b4bTaskName"
+                    materialDesign:HintAssist.Hint="Enter Task Name"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    IsEditable="True"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:HintAssist.HelperText="" Margin="276.132,39.345,317.967,413.555" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF">
+                    <ComboBoxItem Content="New Task" IsSelected="True"/>
+                </ComboBox>
+                <TextBox x:Name="b4bTaskAmount"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="" Margin="557.2,43.845,53.567,413.555" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Counter" />
+                            <TextBlock><Run Text="Task Amount"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <ToggleButton x:Name="b4bCookieATC"
+                    Style="{StaticResource MaterialDesignActionToggleButton}"
+                    ToolTip="Click to enable" Margin="300.816,143.267,498.483,322.733" Background="#FF560099">
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+                            Kind="Check" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="Close" />
+                </ToggleButton>
+                <ToggleButton x:Name="b4bEarlyLogin"
+                    Style="{StaticResource MaterialDesignActionToggleButton}"
+                    ToolTip="Click to enable" Margin="300.816,195.8,498.483,270.2" Background="#FF560099">
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+                            Kind="Check" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="Close" />
+                </ToggleButton>
+                <ToggleButton x:Name="b4bForceaptcha"
+                    Style="{StaticResource MaterialDesignActionToggleButton}"
+                    ToolTip="Click to enable" Margin="300.816,256.445,498.483,209.555" Background="#FF560099">
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+                            Kind="Check" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="Close" />
+                </ToggleButton>
+                <ToggleButton x:Name="b4bUseHarv"
+                    Style="{StaticResource MaterialDesignActionToggleButton}"
+                    ToolTip="Click to enable" Margin="300.816,318.845,498.483,147.155" Background="#FF560099">
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+                            Kind="Check" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="Close" />
+                </ToggleButton>
+                <TextBlock HorizontalAlignment="Left" Height="21.867" Margin="354.301,149.134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219.733" FontSize="14" Foreground="White"><Run Text="Share ATC Cookie"/><Run Text=" (No Login)"/></TextBlock>
+                <TextBlock HorizontalAlignment="Left" Height="21.867" Margin="354.301,203.2,0,0" TextWrapping="Wrap" Text="Early Login" VerticalAlignment="Top" Width="146.133" FontSize="14" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Height="21.867" Margin="354.301,260.845,0,0" TextWrapping="Wrap" Text="Force Captcha on ATC" VerticalAlignment="Top" Width="146.133" FontSize="14" Foreground="White"/>
+                <TextBlock HorizontalAlignment="Left" Height="21.867" Margin="354.301,322.605,0,0" TextWrapping="Wrap" Text="Use Harvester" VerticalAlignment="Top" Width="146.133" FontSize="14" Foreground="White"/>
+                <Button Click="b4bDelTask"
+                    Style="{DynamicResource MaterialDesignRaisedButton}"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth5" Margin="428.399,379.533,350.601,80.6" Background="#FF560099" BorderBrush="{x:Null}" Height="Auto">
+                    <materialDesign:PackIcon Kind="Delete"/>
+                </Button>
+                <Button Click="b4bSaveTask"
+                    Style="{DynamicResource MaterialDesignRaisedButton}"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth5" Margin="300.816,379.533,478.185,80.6" Background="#FF2196F3" BorderBrush="{x:Null}" Height="Auto">
+                    <materialDesign:PackIcon Kind="ContentSave"/>
+                </Button>
+                <Button Click="b4bLoadTask"
+                    Style="{DynamicResource MaterialDesignRaisedButton}"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth5" Margin="364.283,379.533,414.718,80.6" Background="#FF2196F3" BorderBrush="{x:Null}" Height="Auto">
+                    <materialDesign:PackIcon Kind="Edit"/>
+                </Button>
+                <Image Margin="70.4,12.467,646.9,375.8" Source="Image21.png" Stretch="Fill"/>
+                <ToggleButton x:Name="b4bAccClear"
+                    Style="{StaticResource MaterialDesignActionToggleButton}"
+                    ToolTip="Click to enable" Margin="566.416,143.267,232.883,322.733" Background="#FF560099">
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+                            Kind="Check" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+                        Kind="Close" />
+                </ToggleButton>
+                <TextBlock HorizontalAlignment="Left" Height="21.867" Margin="619.901,149.134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157.832" FontSize="14" Foreground="White" Text="Clear Account Cart"/>
+            </Grid>
+            <Grid Name="montroseTab" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="507.676" Margin="18.1,88.4,0,0" VerticalAlignment="Top" Width="823.668" Grid.RowSpan="2">
+                <TextBox x:Name="montroseUrl"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="" Margin="38.8,145.867,544.335,321.209" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Link" />
+                            <TextBlock><Run Text="Product URL"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <Rectangle Fill="Black" HorizontalAlignment="Left" Height="112.2" Margin="38.8,10,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="240.533"/>
+                <Image Margin="100.8,15.467,608.001,391.342" Source="Image27.png" Stretch="Fill"/>
+                <TextBox x:Name="montroseSizes"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="[EU / UK]" Margin="38.8,205.067,544.335,262.009" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Ruler" />
+                            <TextBlock><Run Text="Sizes"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <materialDesign:PackIcon Kind="UserAddOutline" HorizontalAlignment="Left" Height="27.017" Margin="41.733,276.655,0,0" VerticalAlignment="Top" Width="15.799" Foreground="White" RenderTransformOrigin="0.627,0.355"/>
+                <ComboBox x:Name="montroseProfile"
+                    materialDesign:HintAssist.Hint="Select Profile"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    IsEditable="True"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:HintAssist.HelperText="" Margin="62.532,264.945,544.335,197.631" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF"/>
+                <materialDesign:PackIcon Kind="Web" HorizontalAlignment="Left" Height="27.017" Margin="41.733,347.455,0,0" VerticalAlignment="Top" Width="15.799" Foreground="White" RenderTransformOrigin="0.627,0.355"/>
+                <ComboBox x:Name="montroseProxylist"
+                    materialDesign:HintAssist.Hint="Select Proxylist"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    IsEditable="True"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:HintAssist.HelperText="" Margin="62.532,335.745,544.335,126.831" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF">
+                    <ComboBoxItem Content="localhost" IsSelected="True"/>
+                </ComboBox>
+                <TextBox x:Name="montroseDelay"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="[ms]" Margin="38.8,400.734,544.335,66.342" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Clock" />
+                            <TextBlock><Run Text="Retrydelay"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <ComboBox x:Name="montroseTaskName"
+                    materialDesign:HintAssist.Hint="Enter Task Name"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    IsEditable="True"
+                    Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                    materialDesign:HintAssist.HelperText="" Margin="303.865,71.234,282.602,391.342" Background="#FF272B2F" Foreground="White" FontSize="14" Height="45.1" BorderBrush="#89FFFFFF">
+                    <ComboBoxItem Content="New Task" IsSelected="True"/>
+                </ComboBox>
+                <TextBox x:Name="montroseTaskAmount"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    Text=""
+                    VerticalAlignment="Center"
+                    materialDesign:TextFieldAssist.HasClearButton="False"
+                    materialDesign:TextFieldAssist.SuffixText="" Margin="584.933,75.734,18.202,391.342" Background="#FF272B2F" Foreground="White" FontSize="14" Height="40.6" BorderBrush="#89FFFFFF">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="-2 0 0 0">
+                            <materialDesign:PackIcon
+                                Kind="Counter" />
+                            <TextBlock><Run Text="Task Amount"/></TextBlock>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <Button Click="montroseSave" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="43.2" Margin="325.451,398.134,0,0" VerticalAlignment="Top" Width="52.699" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="ContentSave"/>
+                </Button>
+                <Button Click="delMontrose" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="43.2" Margin="454.884,398.134,0,0" VerticalAlignment="Top" Width="48.166" BorderBrush="{x:Null}" Background="#FF560099">
+                    <materialDesign:PackIcon Kind="Delete"/>
+                </Button>
+                <Button Click="montroseLoad" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="43.2" Margin="390.251,398.134,0,0" VerticalAlignment="Top" Width="52.699" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="Edit"/>
+                </Button>
+            </Grid>
+
+
+
+        </Grid>
+        <Grid x:Name="SettingsPage"  HorizontalAlignment="Left" Height="614.2" Margin="12.8,110.8,0,0" VerticalAlignment="Top" Width="879.4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="242*"/>
+                <ColumnDefinition Width="51*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="83*"/>
+                <RowDefinition Height="532*"/>
+            </Grid.RowDefinitions>
+            <Rectangle Fill="#FF272B2F" HorizontalAlignment="Left" Height="575.4" Margin="10,23.2,0,0" VerticalAlignment="Top" Width="841.8" RadiusX="15" RadiusY="15" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="discordWebhook"
+  materialDesign:HintAssist.Hint="Discord Webhook"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" Margin="66.333,66.207,375.067,511.033" Background="{x:Null}" Foreground="White" SelectionBrush="#FF461174" CaretBrush="#FF461174" BorderBrush="#FF461174" Grid.RowSpan="2" />
+            <TextBox x:Name="twocapApiKey"
+                materialDesign:HintAssist.Hint="2Captcha API Key"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center" Margin="66.333,36.024,375.067,458.566" Background="{x:Null}" Foreground="White" SelectionBrush="#FF461174" CaretBrush="#FF461174" BorderBrush="#FF461174" Grid.Row="1" />
+            <Button Click="testWebhook" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="36.96" Margin="395.133,66.207,0,0" VerticalAlignment="Top" Width="48" Background="#FF461174" BorderBrush="#FF461174" Grid.RowSpan="2">
+                <materialDesign:PackIcon Kind="TestTube"/>
+
+            </Button>
+            <Rectangle Fill="#FF232323" HorizontalAlignment="Left" Height="359.067" Margin="44.333,144.083,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="246.4" Grid.Row="1"/>
+            <Rectangle Fill="#FF232323" HorizontalAlignment="Left" Height="359.067" Margin="315.8,144.083,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="246.4" Grid.Row="1"/>
+            <Rectangle Fill="#FF232323" HorizontalAlignment="Left" Height="359.067" Margin="590,144.083,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="246.4" Grid.Row="1" Grid.ColumnSpan="2"/>
+            <TextBlock HorizontalAlignment="Left" Height="20.741" Margin="108.033,157.242,0,0" TextWrapping="Wrap" Text="Quicktask Settings:" VerticalAlignment="Top" Width="117.467" Foreground="White" FontSize="14" Grid.Row="1"/>
+            <TextBlock HorizontalAlignment="Left" Height="20.741" Margin="395.133,157.242,0,0" TextWrapping="Wrap" Text="Sizegroups:" VerticalAlignment="Top" Width="117.467" Foreground="White" FontSize="14" Grid.Row="1"/>
+            <TextBlock HorizontalAlignment="Left" Height="20.741" Margin="666.433,157.242,0,0" TextWrapping="Wrap" Text="Profilegroups:" VerticalAlignment="Top" Width="117.467" Foreground="White" FontSize="14" Grid.Row="1" Grid.ColumnSpan="2"/>
+            <ComboBox Name="qtProfile" materialDesign:HintAssist.Hint="QT Profile" HorizontalAlignment="Left" Height="32" Margin="66.333,191.883,0,0" VerticalAlignment="Top" Width="208.8" Foreground="White" Background="#FF232323" BorderBrush="#89FFFFFF" Grid.Row="1"/>
+            <ComboBox Name="qtProxylist" materialDesign:HintAssist.Hint="QT Proxylist" HorizontalAlignment="Left" Height="32" Margin="66.333,243.083,0,0" VerticalAlignment="Top" Width="208.8" Foreground="White" Background="#FF232323" BorderBrush="#89FFFFFF" Grid.Row="1"/>
+            <ComboBox IsEditable="True" Name="sizeGroupname" materialDesign:HintAssist.Hint="Group Name" HorizontalAlignment="Left" Height="32" Margin="337.533,191.883,0,0" VerticalAlignment="Top" Width="208.8" Foreground="White" Background="#FF232323" BorderBrush="#89FFFFFF" Grid.Row="1"/>
+            <ComboBox IsEditable="True" Name="profileGroupName" materialDesign:HintAssist.Hint="Group Name" HorizontalAlignment="Left" Height="32" Margin="610.333,191.883,0,0" VerticalAlignment="Top" Width="208.8" Foreground="White" Background="#FF232323" BorderBrush="White" Grid.Row="1" Grid.ColumnSpan="2"/>
+            <TextBox Name="qtSizes" materialDesign:HintAssist.Hint="QT Standardsizes" Margin="66.333,306.284,557.667,193.066" Foreground="White" BorderBrush="White" Grid.Row="1" />
+            <TextBox x:Name="qtTasks" materialDesign:HintAssist.Hint="QT Threads" Margin="188.403,306.284,451.197,193.066" Foreground="White" BorderBrush="White" Grid.Row="1" />
+            <TextBox Name="sizegroupContent" materialDesign:HintAssist.Hint="Group Sizes" Margin="337.533,245.083,180.067,254.267" Foreground="White" BorderBrush="White" Grid.Row="1" />
+            <TextBox x:Name="profileGroupContent" materialDesign:HintAssist.Hint="Group Profiles" Margin="610.333,243.083,60.267,256.267" Foreground="White" BorderBrush="White" Grid.Row="1" Grid.ColumnSpan="2" />
+            <Button Click="saveStandardSettings" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="36.96" Margin="395.133,36.024,0,0" VerticalAlignment="Top" Width="48" Background="#FF00FF0C" BorderBrush="{x:Null}" Foreground="White" OpacityMask="#FF00FF0C" Grid.Row="1">
+                <materialDesign:PackIcon Kind="ContentSave"/>
+
+            </Button>
+            <Button Click="delStandardSettings" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="36.96" Margin="395.133,87.923,0,0" VerticalAlignment="Top" Width="48" Background="Red" BorderBrush="{x:Null}" Grid.Row="1">
+                <materialDesign:PackIcon Kind="Delete"/>
+
+            </Button>
+            <Button Click="qtSave" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="36.96" Margin="108.033,423.123,0,0" VerticalAlignment="Top" Width="48" Background="#FF00FF0C" BorderBrush="{x:Null}" Foreground="White" OpacityMask="#FF00FF0C" Grid.Row="1">
+                <materialDesign:PackIcon Kind="ContentSave"/>
+
+            </Button>
+            <Button Click="delQTSettings" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="36.96" Margin="177.5,423.123,0,0" VerticalAlignment="Top" Width="48" Background="Red" BorderBrush="{x:Null}" Grid.Row="1">
+                <materialDesign:PackIcon Kind="Delete"/>
+
+            </Button>
+            <Button Click="saveGroup" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="36.96" Margin="359.933,423.123,0,0" VerticalAlignment="Top" Width="48" Background="#FF00FF0C" BorderBrush="{x:Null}" Foreground="White" OpacityMask="#FF00FF0C" Grid.Row="1">
+                <materialDesign:PackIcon Kind="ContentSave"/>
+
+            </Button>
+            <Button Click="delSizegroup" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="36.96" Margin="481.4,423.123,0,0" VerticalAlignment="Top" Width="48" Background="Red" BorderBrush="{x:Null}" Grid.Row="1">
+                <materialDesign:PackIcon Kind="Delete"/>
+
+            </Button>
+            <Button Click="saveProfileGroup" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="36.96" Margin="632.833,423.123,0,0" VerticalAlignment="Top" Width="48" Background="#FF00FF0C" BorderBrush="{x:Null}" Foreground="White" OpacityMask="#FF00FF0C" Grid.Row="1">
+                <materialDesign:PackIcon Kind="ContentSave"/>
+
+            </Button>
+            <Button Click="delProfilegroup" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="36.96" Margin="25.9,423.123,0,0" VerticalAlignment="Top" Width="48" Background="Red" BorderBrush="{x:Null}" Grid.Row="1" Grid.Column="1">
+                <materialDesign:PackIcon Kind="Delete"/>
+
+            </Button>
+            <Button Click="loadSGroup"  materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="36.96" Margin="421.333,423.123,0,0" VerticalAlignment="Top" Width="48" Background="#FFFFDC00" BorderBrush="{x:Null}" Foreground="White" OpacityMask="#FF00FF0C" Grid.Row="1">
+                <materialDesign:PackIcon Kind="Edit"/>
+
+            </Button>
+            <Button Click="editProfileGroup" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="36.96" Margin="693.5,423.123,0,0" VerticalAlignment="Top" Width="48" Background="#FFFFDC00" BorderBrush="{x:Null}" Grid.Row="1" Grid.ColumnSpan="2">
+                <materialDesign:PackIcon Kind="Edit"/>
+
+            </Button>
+            <Rectangle Fill="#FF232323" HorizontalAlignment="Left" Height="165.6" Margin="469.93,42.175,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="366.47" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+            <TextBlock HorizontalAlignment="Left" Height="24.4" Margin="489.5,58.492,0,0" TextWrapping="Wrap" Text="2Captcha-Turbo" VerticalAlignment="Top" Width="185.6" Foreground="White"/>
+            <TextBox x:Name="turboThreads"
+                materialDesign:HintAssist.Hint="Thread Amount"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center" Margin="489.5,7.074,114.57,487.274" Background="{x:Null}" Foreground="White" SelectionBrush="#FF461174" CaretBrush="#FF461174" BorderBrush="#FF461174" Grid.ColumnSpan="2" Grid.Row="1" />
+            <TextBox x:Name="turboDomain" IsEnabled="False"
+                materialDesign:HintAssist.Hint="Domain" Text="https://www.basket4ballers.com"
+                Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                VerticalAlignment="Center" Margin="489.5,58.973,114.57,435.375" Background="{x:Null}" Foreground="White" SelectionBrush="#FF461174" CaretBrush="#FF461174" BorderBrush="#FF461174" Grid.ColumnSpan="2" Grid.Row="1" />
+            <Button Click="delTurbo" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="36.96" Margin="51.203,58.973,0,0" VerticalAlignment="Top" Width="48" Background="Red" BorderBrush="{x:Null}" Grid.Row="1" Grid.Column="1">
+                <materialDesign:PackIcon Kind="Delete"/>
+
+            </Button>
+            <Button Click="saveTurbo" materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="36.96" Margin="51.203,7.074,0,0" VerticalAlignment="Top" Width="48" Background="#FF00FF0C" BorderBrush="{x:Null}" Foreground="White" OpacityMask="#FF00FF0C" Grid.Row="1" Grid.Column="1">
+                <materialDesign:PackIcon Kind="ContentSave"/>
+
+            </Button>
+        </Grid>
+        <Grid  Name="accPanel" HorizontalAlignment="Left" Height="565.4" Margin="21.2,120.893,0,0" VerticalAlignment="Top" Width="871">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="394*"/>
+                <ColumnDefinition Width="477*"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle Fill="#FF272B2F" HorizontalAlignment="Left" Height="555.4" Margin="10,10,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="851" Grid.ColumnSpan="2"/>
+            <Rectangle Fill="#FF232323" HorizontalAlignment="Left" Height="408.5" Margin="28.833,146.9,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="818.4" Grid.ColumnSpan="2"/>
+            <StackPanel Grid.ColumnSpan="2">
+                <TextBox x:Name="accountField"
+    Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+    Margin="32.8,150,30,900"
+    VerticalAlignment="Top"
+    Height="403.2"
+    AcceptsReturn="True"
+    TextWrapping="Wrap"
+    VerticalScrollBarVisibility="Auto"
+    materialDesign:HintAssist.Hint="Enter Accounts"
+    IsEnabled="{Binding IsChecked, ElementName=MaterialDesignOutlinedTextFieldTextBoxEnabledComboBox}" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" />
+                <TextBox
+                    Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                    Margin="450,130,30,900"
+                    VerticalAlignment="Top"
+                    Height="400"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="Enter Accounts"
+                    IsEnabled="{Binding IsChecked, ElementName=MaterialDesignOutlinedTextFieldTextBoxEnabledComboBox}" />
+            </StackPanel>
+            <ComboBox Name="selAccSite" HorizontalAlignment="Left" Height="34.4" Margin="28.833,25.6,0,0" VerticalAlignment="Top" Width="221.7" BorderBrush="White" Foreground="White" FontSize="14" Background="#FF272B2F">
+                <ComboBoxItem Content="Select Site" IsSelected="True"/>
+
+                <ComboBoxItem Content="Basket4Ballers"/>
+                <ComboBoxItem Content="Aw-Lab"/>
+                <ComboBoxItem Content="24segons"/>
+
+            </ComboBox>
+            <Button  Click="saveAccount"  HorizontalAlignment="Left" Height="45.6" Margin="37.733,84.8,0,0" VerticalAlignment="Top" Width="57.6" Background="#FF00FF15" BorderBrush="{x:Null}">
+                <materialDesign:PackIcon Kind="ContentSave"/>
+            </Button>
+            <Button Click="delAcc"  HorizontalAlignment="Left" Height="45.6" Margin="172.666,84.8,0,0" VerticalAlignment="Top" Width="57.6" BorderBrush="{x:Null}" Background="#FFFF1200">
+                <materialDesign:PackIcon Kind="Delete"/>
+            </Button>
+            <Button Click="loadAcc"  HorizontalAlignment="Left" Height="45.6" Margin="103.866,84.8,0,0" VerticalAlignment="Top" Width="57.6" Background="#FFEBFF00" BorderBrush="{x:Null}">
+                <materialDesign:PackIcon Kind="Edit"/>
+            </Button>
+
+        </Grid>
+        <Grid Name="cookieTab" HorizontalAlignment="Left" Height="553.6" Margin="2330.8,-234.6,-1932.4,0" VerticalAlignment="Top" Width="769.6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="112*"/>
+                <ColumnDefinition Width="657*"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle Fill="#FF292D31" HorizontalAlignment="Left" Height="533.6" Margin="10,10,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="749.6" Grid.ColumnSpan="2"/>
+            <Rectangle Fill="#FF232323" HorizontalAlignment="Left" Height="237.6" Margin="32.4,34,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="336.267" Grid.ColumnSpan="2"/>
+            <TextBlock HorizontalAlignment="Left" Height="29.6" Margin="46.113,59.14,0,0" TextWrapping="Wrap" Text="Zalando" VerticalAlignment="Top" Width="128.8" Foreground="White" FontSize="20" Grid.Column="1"/>
+            <TextBlock HorizontalAlignment="Left" Height="29.6" Margin="66.2,119.14,0,0" TextWrapping="Wrap" Text="Total Available:" VerticalAlignment="Top" Width="128.8" Foreground="White" FontSize="14" Grid.ColumnSpan="2"/>
+            <TextBlock HorizontalAlignment="Left" Height="29.6" Margin="83,153.74,0,0" TextWrapping="Wrap" Text="792" VerticalAlignment="Top" Width="128.8" Foreground="White" FontSize="20" Grid.ColumnSpan="2"/>
+            <Button materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="36.96" Margin="67.713,220.874,0,0" VerticalAlignment="Top" Width="48" Background="#FF461174" BorderBrush="#FF461174" Grid.Column="1">
+                <materialDesign:PackIcon Kind="Export"/>
+            </Button>
+            <Button materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="36.96" Margin="136.247,220.874,0,0" VerticalAlignment="Top" Width="48" Background="Red" BorderBrush="#FF461174" Grid.Column="1">
+                <materialDesign:PackIcon Kind="Delete"/>
+            </Button>
+            <Rectangle Fill="#FF232323" HorizontalAlignment="Left" Height="248.8" Margin="32.4,276.6,0,0" RadiusY="15" RadiusX="15" VerticalAlignment="Top" Width="703.2" Grid.ColumnSpan="2"/>
+            <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="28.8" Margin="61.1,298.34,0,0" TextWrapping="Wrap" Text="Automatic Generation:" VerticalAlignment="Top" Width="201.634" Foreground="White" FontSize="14"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition
+      Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <CheckBox
+    Content="Use Proxies"
+    IsChecked="True"
+    x:Name="RichTextBoxIsReadOnlyCheckBox" Margin="411.2,283.4,-411.2,234.2" Grid.Row="1" Foreground="White" />
+                <RichTextBox
+    MinWidth="280"
+    AcceptsReturn="True"
+    IsDocumentEnabled="True"
+    IsReadOnly="{Binding IsChecked, ElementName=RichTextBoxIsReadOnlyCheckBox}"
+    VerticalScrollBarVisibility="Auto"
+    SpellCheck.IsEnabled="True"
+    materialDesign:HintAssist.Hint="Multiline text"
+    Grid.Row="1" Margin="410.194,328.8,-594.107,45.6" RenderTransformOrigin="0.5,0.5" Foreground="White" BorderBrush="#89FFFFFF">
+                    <RichTextBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="-0.383"/>
+                            <RotateTransform/>
+                            <TranslateTransform X="-0.393"/>
+                        </TransformGroup>
+                    </RichTextBox.RenderTransform>
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run Text="Generation Proxies"/>
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+            </Grid>
+            <ComboBox materialDesign:HintAssist.Hint="Domain" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="41.6" Margin="62.8,343.14,0,0" VerticalAlignment="Top" Width="224.2" Foreground="White" FontSize="14" BorderBrush="#89FFFFFF" Background="{x:Null}"
+>
+                <ComboBoxItem Content="zalando.it"/>
+            </ComboBox>
+            <Button materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="36.96" Margin="61.1,469.274,0,0" VerticalAlignment="Top" Width="48" Background="#FF00FF0C" BorderBrush="{x:Null}">
+                <materialDesign:PackIcon Kind="Play"/>
+            </Button>
+            <Button materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="36.96" Margin="10,469.274,0,0" VerticalAlignment="Top" Width="48" Background="Red" BorderBrush="{x:Null}" Grid.Column="1">
+                <materialDesign:PackIcon Kind="Stop"/>
+            </Button>
+            <Button materialDesign:ShadowAssist.ShadowDepth="Depth5" HorizontalAlignment="Left" Height="36.96" Margin="0,220.874,0,0" VerticalAlignment="Top" Width="48" Background="#FF00C3FF" BorderBrush="{x:Null}" Grid.Column="1">
+                <materialDesign:PackIcon Kind="OpenInBrowser"/>
+            </Button>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="203.26" Margin="269.313,68.34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354.2" FontSize="14" Foreground="White"><Run Text="Cookies will be needed for Zalando tasks to properly work. Yo"/><Run Text="u"/><Run Text=" will need one each 5 tasks at least. "/><LineBreak/><Run Text="Make sure to get fresh ones after each use."/><LineBreak/><Run Text="You can only create them for 1 domain."/><LineBreak/><Run/><LineBreak/><Run Text="Please note, auto generation is currently in experimental mode. Browser Collector is recommended!"/></TextBlock>
+            <materialDesign:PackIcon Kind="InformationVariant" Grid.Column="1" Margin="269.313,44.14,0,0" Foreground="White" Height="19.2" Width="20" />
+        </Grid>
+
+
+    </Grid>
+</Window>
